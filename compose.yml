@@ -20,10 +20,12 @@ services:
     build:
       context: ./
       dockerfile: backend.Dockerfile
+      args:
+        - APP_USER=App1
     expose:
       - '8081'
     environment:
-      - DB_URL=jdbc:postgresql://postgres:5432/racoon-filesystem-checker
+      - DB_URL=postgresql://postgres:5432/racoon-filesystem-checker
       - DB_USER=postgres
       - DB_PASSWORD=postgres
       - SPRING_PROFILES_ACTIVE=docker
