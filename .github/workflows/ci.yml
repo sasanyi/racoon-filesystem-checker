@@ -5,8 +5,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  checkout:
-    name: Build and Test
+  build:
+    name: Build, Test, Sonar
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -21,22 +21,12 @@ jobs:
         java-version: '17'
         distribution: 'oracle'
 
-
     - name: Make gradlew executable
       run: chmod +x ./gradlew
 
     - name: Build and Test with Gradle
       run: ./gradlew build
 
-  sonarqube:
-    name: SonarQube code analysis
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout branch
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
       env:
@@ -55,6 +45,9 @@ jobs:
 
     - name: "SonarQube Quality Gate Status"
       run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
+
+
+
   
     
     
