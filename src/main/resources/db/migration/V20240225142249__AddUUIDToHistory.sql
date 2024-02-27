@@ -1,0 +1,1 @@
+alter table rcswfilesystem.history alter column id type uuid using id::uuid;

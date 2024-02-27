@@ -27,6 +27,7 @@ loadScripts(document, 'script');</script>
 <div class="top-nav" id="navbar-top">
 <div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
 <ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="index.html">Overview</a></li>
 <li>Package</li>
 <li>Class</li>
 <li class="nav-bar-cell1-rev">Tree</li>
@@ -49,7 +50,17 @@ loadScripts(document, 'script');</script>
 <h1 class="title">Hierarchy For All Packages</h1>
 <span class="package-hierarchy-label">Package Hierarchies:</span>
 <ul class="horizontal">
-<li><a href="hu/racoonsoftware/filesystemchecker/package-tree.html">hu.racoonsoftware.filesystemchecker</a></li>
+<li><a href="hu/racoonsoftware/filesystemchecker/package-tree.html">hu.racoonsoftware.filesystemchecker</a>, </li>
+<li><a href="hu/racoonsoftware/filesystemchecker/config/package-tree.html">hu.racoonsoftware.filesystemchecker.config</a>, </li>
+<li><a href="hu/racoonsoftware/filesystemchecker/config/support/package-tree.html">hu.racoonsoftware.filesystemchecker.config.support</a>, </li>
+<li><a href="hu/racoonsoftware/filesystemchecker/controller/package-tree.html">hu.racoonsoftware.filesystemchecker.controller</a>, </li>
+<li><a href="hu/racoonsoftware/filesystemchecker/dto/package-tree.html">hu.racoonsoftware.filesystemchecker.dto</a>, </li>
+<li><a href="hu/racoonsoftware/filesystemchecker/exception/package-tree.html">hu.racoonsoftware.filesystemchecker.exception</a>, </li>
+<li><a href="hu/racoonsoftware/filesystemchecker/mapper/package-tree.html">hu.racoonsoftware.filesystemchecker.mapper</a>, </li>
+<li><a href="hu/racoonsoftware/filesystemchecker/model/package-tree.html">hu.racoonsoftware.filesystemchecker.model</a>, </li>
+<li><a href="hu/racoonsoftware/filesystemchecker/repository/package-tree.html">hu.racoonsoftware.filesystemchecker.repository</a>, </li>
+<li><a href="hu/racoonsoftware/filesystemchecker/service/package-tree.html">hu.racoonsoftware.filesystemchecker.service</a>, </li>
+<li><a href="hu/racoonsoftware/filesystemchecker/util/filesystem/package-tree.html">hu.racoonsoftware.filesystemchecker.util.filesystem</a></li>
 </ul>
 </div>
 <section class="hierarchy">
@@ -57,7 +68,63 @@ loadScripts(document, 'script');</script>
 <ul>
 <li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" class="type-name-link external-link" title="class or interface in java.lang">Object</a>
 <ul>
+<li class="circle">hu.racoonsoftware.filesystemchecker.config.<a href="hu/racoonsoftware/filesystemchecker/config/AppConfiguration.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.config">AppConfiguration</a></li>
 <li class="circle">hu.racoonsoftware.filesystemchecker.<a href="hu/racoonsoftware/filesystemchecker/FilesystemCheckerApplication.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker">FilesystemCheckerApplication</a></li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.util.filesystem.<a href="hu/racoonsoftware/filesystemchecker/util/filesystem/FilesystemHelper.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.util.filesystem">FilesystemHelper</a></li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.controller.<a href="hu/racoonsoftware/filesystemchecker/controller/FilesystemOperationController.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.controller">FilesystemOperationController</a></li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.service.<a href="hu/racoonsoftware/filesystemchecker/service/FilesystemOperationServiceImpl.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.service">FilesystemOperationServiceImpl</a> (implements hu.racoonsoftware.filesystemchecker.service.<a href="hu/racoonsoftware/filesystemchecker/service/FilesystemOperationService.html" title="interface in hu.racoonsoftware.filesystemchecker.service">FilesystemOperationService</a>)</li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.model.<a href="hu/racoonsoftware/filesystemchecker/model/History.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.model">History</a> (implements org.springframework.data.domain.Persistable&lt;ID&gt;)</li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.controller.<a href="hu/racoonsoftware/filesystemchecker/controller/HistoryController.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.controller">HistoryController</a></li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.service.<a href="hu/racoonsoftware/filesystemchecker/service/HistoryServiceImp.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.service">HistoryServiceImp</a> (implements hu.racoonsoftware.filesystemchecker.service.<a href="hu/racoonsoftware/filesystemchecker/service/HistoryService.html" title="interface in hu.racoonsoftware.filesystemchecker.service">HistoryService</a>)</li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.config.support.<a href="hu/racoonsoftware/filesystemchecker/config/support/JSONToMapConverter.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.config.support">JSONToMapConverter</a>&lt;K,<wbr>V&gt; (implements org.springframework.core.convert.converter.Converter&lt;S,<wbr>T&gt;)</li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.config.support.<a href="hu/racoonsoftware/filesystemchecker/config/support/MapToJSONConverter.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.config.support">MapToJSONConverter</a>&lt;K,<wbr>V&gt; (implements org.springframework.core.convert.converter.Converter&lt;S,<wbr>T&gt;)</li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.config.<a href="hu/racoonsoftware/filesystemchecker/config/OpenApiConfig.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.config">OpenApiConfig</a></li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.config.<a href="hu/racoonsoftware/filesystemchecker/config/R2DBCConfig.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.config">R2DBCConfig</a></li>
+<li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html" class="type-name-link external-link" title="class or interface in java.lang">Record</a>
+<ul>
+<li class="circle">hu.racoonsoftware.filesystemchecker.dto.<a href="hu/racoonsoftware/filesystemchecker/dto/ErrorDto.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.dto">ErrorDto</a></li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.dto.<a href="hu/racoonsoftware/filesystemchecker/dto/HistoryDto.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.dto">HistoryDto</a></li>
+</ul>
+</li>
+<li class="circle">org.springframework.web.reactive.result.method.annotation.ResponseEntityExceptionHandler (implements org.springframework.context.MessageSourceAware)
+<ul>
+<li class="circle">hu.racoonsoftware.filesystemchecker.controller.<a href="hu/racoonsoftware/filesystemchecker/controller/GlobalExceptionHandler.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.controller">GlobalExceptionHandler</a></li>
+</ul>
+</li>
+<li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" class="type-name-link external-link" title="class or interface in java.lang">Throwable</a> (implements java.io.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a>)
+<ul>
+<li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Exception.html" class="type-name-link external-link" title="class or interface in java.lang">Exception</a>
+<ul>
+<li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html" class="type-name-link external-link" title="class or interface in java.lang">RuntimeException</a>
+<ul>
+<li class="circle">hu.racoonsoftware.filesystemchecker.exception.<a href="hu/racoonsoftware/filesystemchecker/exception/NotFoundException.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.exception">NotFoundException</a>
+<ul>
+<li class="circle">hu.racoonsoftware.filesystemchecker.exception.<a href="hu/racoonsoftware/filesystemchecker/exception/PathNotFoundException.html" class="type-name-link" title="class in hu.racoonsoftware.filesystemchecker.exception">PathNotFoundException</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="hierarchy">
+<h2 title="Interface Hierarchy">Interface Hierarchy</h2>
+<ul>
+<li class="circle">hu.racoonsoftware.filesystemchecker.service.<a href="hu/racoonsoftware/filesystemchecker/service/FilesystemOperationService.html" class="type-name-link" title="interface in hu.racoonsoftware.filesystemchecker.service">FilesystemOperationService</a></li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.mapper.<a href="hu/racoonsoftware/filesystemchecker/mapper/HistoryMapper.html" class="type-name-link" title="interface in hu.racoonsoftware.filesystemchecker.mapper">HistoryMapper</a></li>
+<li class="circle">hu.racoonsoftware.filesystemchecker.service.<a href="hu/racoonsoftware/filesystemchecker/service/HistoryService.html" class="type-name-link" title="interface in hu.racoonsoftware.filesystemchecker.service">HistoryService</a></li>
+<li class="circle">org.springframework.data.repository.Repository&lt;T,<wbr>ID&gt;
+<ul>
+<li class="circle">org.springframework.data.repository.reactive.ReactiveCrudRepository&lt;T,<wbr>ID&gt;
+<ul>
+<li class="circle">hu.racoonsoftware.filesystemchecker.repository.<a href="hu/racoonsoftware/filesystemchecker/repository/HistoryRepository.html" class="type-name-link" title="interface in hu.racoonsoftware.filesystemchecker.repository">HistoryRepository</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

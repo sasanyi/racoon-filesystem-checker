@@ -1,1 +1,11 @@
 hu.racoonsoftware.filesystemchecker
+hu.racoonsoftware.filesystemchecker.config
+hu.racoonsoftware.filesystemchecker.config.support
+hu.racoonsoftware.filesystemchecker.controller
+hu.racoonsoftware.filesystemchecker.dto
+hu.racoonsoftware.filesystemchecker.exception
+hu.racoonsoftware.filesystemchecker.mapper
+hu.racoonsoftware.filesystemchecker.model
+hu.racoonsoftware.filesystemchecker.repository
+hu.racoonsoftware.filesystemchecker.service
+hu.racoonsoftware.filesystemchecker.util.filesystem
