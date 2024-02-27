@@ -6,6 +6,8 @@ services:
   postgres:
     image: docker.io/postgres:latest
     container_name: racoon-filesystem-checker-postgres
+    expose:
+      - '54321'
     ports:
       - '5432:5432'
     environment:
@@ -16,12 +18,8 @@ services:
       - data:/var/lib/postgresql/data
       - export:/export
   racoon-filesystem-checker:
-    container_name: racoon-filesystem-checker-service
-    build:
-      context: ./
-      dockerfile: backend.Dockerfile
-      args:
-        - APP_USER=App1
+    image: docker.io/savanyaj/racoon-filesystem-checker:main
+    container_name: racoon-filesystem-checker-backend1
     expose:
       - '8081'
     environment:

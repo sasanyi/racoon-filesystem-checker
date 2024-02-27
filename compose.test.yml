@@ -1,0 +1,35 @@
+version: '3'
+volumes:
+  data:
+  export:
+services:
+  postgres:
+    image: docker.io/postgres:latest
+    container_name: racoon-filesystem-checker-postgres
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=racoon-filesystem-checker
+    volumes:
+      - data:/var/lib/postgresql/data
+      - export:/export
+  racoon-filesystem-checker:
+    image: racoon-filesystem-checker-image
+    container_name: racoon-filesystem-checker-service
+    build:
+      context: ./
+      dockerfile: backend.Dockerfile
+      args:
+        - APP_USER=App1
+    expose:
+      - '8081'
+    environment:
+      - DB_URL=postgresql://postgres:5432/racoon-filesystem-checker
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_PORT=8081
+    ports:
+      - '8081:8081'
