@@ -45,6 +45,7 @@ jobs:
         context: .
         file: ./backend.Dockerfile
         push: true
+        build-args: APP_USER=racoon
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
     
