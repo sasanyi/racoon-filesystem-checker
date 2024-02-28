@@ -31,11 +31,12 @@ jobs:
       run: ./gradlew test
 
     - name: Upload Test Report
-      uses: actions/upload-artifact@v4
       if: always()
+      uses: actions/upload-artifact@v4
       with:
-        name: RacoonFilesystemCheckerTestReport
-        path: /build/reports/tests/test/
+        name: test-reports
+        path: |
+          **/build/reports/tests/
         if-no-files-found: error
         retention-days: 5
 
