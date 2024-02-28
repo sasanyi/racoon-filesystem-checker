@@ -27,9 +27,4 @@ public interface HistoryService {
      */
     Mono<HistoryDto> saveHistory(History history);
 
-    /**
-     * @param history The history entry which will update
-     * @return The updated history entry
-     */
-    Mono<HistoryDto> updateHistory(History history);
 }

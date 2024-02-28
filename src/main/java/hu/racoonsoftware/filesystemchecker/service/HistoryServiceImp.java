@@ -49,12 +49,4 @@ public class HistoryServiceImp implements HistoryService{
         return this.historyRepository.save(history).map(historyMapper::historyToHistoryDto);
     }
 
-    /**
-     * @param history The history entry which will save
-     * @return The saved history entry
-     */
-    @Override
-    public Mono<HistoryDto> updateHistory(History history) {
-        return this.historyRepository.save(history).map(historyMapper::historyToHistoryDto);
-    }
 }
