@@ -1,0 +1,1 @@
+ALTER TABLE rcswfilesystem.history ADD extension VARCHAR(20) DEFAULT '*';
