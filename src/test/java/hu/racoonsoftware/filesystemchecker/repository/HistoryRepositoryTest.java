@@ -41,8 +41,8 @@ class HistoryRepositoryTest {
 
         StepVerifier.create(this.historyRepository.save(testHistory))
                 .assertNext(history -> {
-                    assertTrue(history.getResult().containsKey("asd.txt"));
-                    assertEquals(2, history.getResult().get("asd.txt"));
+                    assertTrue(history.getResult().containsKey("test.txt"));
+                    assertEquals(2, history.getResult().get("test.txt"));
                 })
                 .expectComplete()
                 .verify();
@@ -105,7 +105,7 @@ class HistoryRepositoryTest {
     private static History createNewTestHistory(String extension) {
         History history = new History(UUID.randomUUID(),
                 "TEST",
-                Map.ofEntries(Map.entry("asd.txt", 2)),
+                Map.ofEntries(Map.entry("test.txt", 2)),
                 LocalDateTime.now(),
                 "testFileSystem",
                 extension);
@@ -127,7 +127,7 @@ class HistoryRepositoryTest {
     private static History createUpdateHistory(String extension) {
         return new History(UUID.randomUUID(),
                 "TEST",
-                Map.ofEntries(Map.entry("asd.txt", 2)),
+                Map.ofEntries(Map.entry("test.txt", 2)),
                 LocalDateTime.now(),
                 "testFileSystem",
                 extension);

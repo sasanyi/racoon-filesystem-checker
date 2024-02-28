@@ -1,5 +1,7 @@
 package hu.racoonsoftware.filesystemchecker.util.filesystem;
 
+import hu.racoonsoftware.filesystemchecker.exception.PathNotFoundException;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,9 +25,15 @@ public final class FilesystemHelper {
      * @return A Map with key of the filename and value of teh occurrence
      * @throws IOException
      */
-    public static Map<String, Integer> catalogFilesRecursivelyInAFolder(String path, String extension) throws IOException {
+    public static Map<String, Integer> catalogFilesRecursivelyInAFolder(String path, String extension)
+            throws IOException, PathNotFoundException {
         Map<String, Integer> fileCatalog = new HashMap<>();
-        try (Stream<Path> walkStream = Files.walk(Paths.get(path))) {
+        Path rootPath = Paths.get(path);
+        if(!Files.exists(rootPath)){
+            throw new PathNotFoundException();
+        }
+
+        try (Stream<Path> walkStream = Files.walk(rootPath)) {
             walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
                 if (extension == null) {
                     fileCatalog.put(f.getFileName().toString(),

@@ -92,8 +92,8 @@ class HistoryServiceImpTest {
 
         StepVerifier.create(this.historyService.saveHistory(testHistory))
                 .assertNext(history -> {
-                    assertTrue(history.result().containsKey("asd.txt"));
-                    assertEquals(2, history.result().get("asd.txt"));
+                    assertTrue(history.result().containsKey("test.txt"));
+                    assertEquals(2, history.result().get("test.txt"));
                 })
                 .expectComplete()
                 .verify();
@@ -105,7 +105,7 @@ class HistoryServiceImpTest {
     private static History createNewTestHistory() {
         return new History(null,
                 "TEST",
-                Map.ofEntries(Map.entry("asd.txt", 2)),
+                Map.ofEntries(Map.entry("test.txt", 2)),
                 LocalDateTime.now(),
                 "testFileSystem",
                 null);

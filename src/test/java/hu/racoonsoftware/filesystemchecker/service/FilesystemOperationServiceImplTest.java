@@ -3,10 +3,7 @@ package hu.racoonsoftware.filesystemchecker.service;
 import hu.racoonsoftware.filesystemchecker.dto.HistoryDto;
 import hu.racoonsoftware.filesystemchecker.exception.PathNotFoundException;
 import hu.racoonsoftware.filesystemchecker.model.History;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +12,11 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlGroup;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -31,6 +33,32 @@ class FilesystemOperationServiceImplTest {
         this.filesystemOperationService = filesystemOperationService;
     }
 
+    @BeforeAll
+    static void beforeAll() {
+        Path path = Paths.get("testFileSystem/test");
+
+        try {
+            Files.createDirectories(path);
+            Files.createFile(Paths.get("testFileSystem/test/test.txt"));
+            Files.createFile(Paths.get("testFileSystem/test/test.csv"));
+            Files.createFile(Paths.get("testFileSystem/test.txt"));
+        } catch (IOException e) {
+            System.err.println("Cannot create directories - " + e);
+        }
+    }
+
+    @AfterAll
+    static void afterAll() {
+        try {
+            Files.deleteIfExists(Paths.get("testFileSystem/test/test.txt"));
+            Files.deleteIfExists(Paths.get("testFileSystem/test/test.csv"));
+            Files.deleteIfExists(Paths.get("testFileSystem/test.txt"));
+            Files.deleteIfExists(Paths.get("testFileSystem/test"));
+            Files.deleteIfExists(Paths.get("testFileSystem"));
+        } catch (IOException e) {
+            System.err.println("Cannot delete directories - " + e);
+        }
+    }
 
     @BeforeEach
     void setUp() {
@@ -52,8 +80,8 @@ class FilesystemOperationServiceImplTest {
     void testFileCatalogWithCorrectPathAndWithoutExtension() {
         StepVerifier.create(this.filesystemOperationService.fileCatalog("testFileSystem", null))
                 .assertNext(historyDto -> {
-                    Assertions.assertTrue(historyDto.result().containsKey("asd.txt"));
-                    Assertions.assertEquals(2, historyDto.result().get("asd.txt"));
+                    Assertions.assertTrue(historyDto.result().containsKey("test.txt"));
+                    Assertions.assertEquals(2, historyDto.result().get("test.txt"));
                 })
                 .expectComplete()
                 .verify();
@@ -63,9 +91,9 @@ class FilesystemOperationServiceImplTest {
     void testFileCatalogWithCorrectPathAndWithExtension() {
         StepVerifier.create(this.filesystemOperationService.fileCatalog("testFileSystem", "csv"))
                 .assertNext(historyDto -> {
-                    Assertions.assertTrue(historyDto.result().containsKey("asd.csv"));
-                    Assertions.assertEquals(1, historyDto.result().get("asd.csv"));
-                    Assertions.assertFalse(historyDto.result().containsKey("asd.txt"));
+                    Assertions.assertTrue(historyDto.result().containsKey("test.csv"));
+                    Assertions.assertEquals(1, historyDto.result().get("test.csv"));
+                    Assertions.assertFalse(historyDto.result().containsKey("test.txt"));
                 })
                 .expectComplete()
                 .verify();
