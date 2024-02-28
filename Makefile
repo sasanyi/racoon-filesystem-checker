@@ -13,6 +13,7 @@ run: build
 
 .PHONY: release
 release:
+	podman-compose -f $(PROD_COMPOSE_FILE) pull
 	podman-compose -f $(PROD_COMPOSE_FILE) up -d --build
 
 .PHONY: clean
