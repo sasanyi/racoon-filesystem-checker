@@ -64,8 +64,8 @@ class FilesystemOperationServiceImplTest {
         StepVerifier.create(this.filesystemOperationService.fileCatalog("testFileSystem", "csv"))
                 .assertNext(historyDto -> {
                     Assertions.assertTrue(historyDto.result().containsKey("asd.csv"));
-                    Assertions.assertFalse(historyDto.result().containsKey("asd.tyt"));
                     Assertions.assertEquals(1, historyDto.result().get("asd.csv"));
+                    Assertions.assertFalse(historyDto.result().containsKey("asd.txt"));
                 })
                 .expectComplete()
                 .verify();
